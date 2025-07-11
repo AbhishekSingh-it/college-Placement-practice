@@ -1,0 +1,165 @@
+<%- include('../layouts/navbar.ejs') %>
+  <%- include('../layouts/sidebar.ejs') %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">Company Display</h1>
+              <% if(error.length> 0){ %>
+                <div class="alert alert-danger">
+                  <!-- To print -->
+                  <%= error %>
+                </div>
+                <% } %>
+                  <% if(success.length> 0){ %>
+                    <div class="alert alert-success">
+                      <!-- To print -->
+                      <%= success %>
+                    </div>
+                    <% } %>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Company Page</li>
+              </ol>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-header">
+              <!-- <h3 class="card-title">DataTable with default features</h3> -->
+              <button type="button" class="btn btn-info Display-flex" data-toggle="modal" data-target="#modal-default">
+                Add Company
+              </button>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>s.No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Website</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% companies.forEach((company, index)=> { %>
+                    <tr>
+                      <td>
+                        <%= index + 1 %>
+                      </td>
+                      <td>
+                        <%=company.name %>
+                      </td>
+                      <td>
+                        <%= company.email %>
+                      </td>
+                      <td>
+                        <%= company.phone %>
+                      </td>
+                      <td>
+                        <%= company.website %>
+                      </td>
+                      <td>
+                        <%= company.address %>
+                      </td>
+                      <td>
+                        <a href="/companyView/<%= company._id %>" class="btn btn-info">View</a>
+                        <a href="/companyEdit/<%= company._id %>" class="btn btn-success">Edit</a>
+                        <a href="/companyDelete/<%= company._id %>" class="btn btn-danger"
+                          onclick="return confirm('Are you sure?')">Delete</a>
+                      </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+
+                <tfoot>
+                  <tr>
+                    <th>s.No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Website</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div class="modal fade" id="modal-default">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Student</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/company/insert" method="post" >
+              <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" name="name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" name="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="">Password</label>
+                <input type="text" name="password" class="form-control" required >
+              </div>
+              <div class="form-group">
+                <label for="">Phone</label>
+                <input type="number" name="phone" class="form-control" required>
+              </div>
+               <div class="form-group">
+                <label for="">Address</label>
+                <input type="text" name="address" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="">Website</label>
+                <input type="text" name="website" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <%- include('../layouts/footer.ejs') %>

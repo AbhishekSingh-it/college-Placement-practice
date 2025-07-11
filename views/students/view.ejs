@@ -1,0 +1,126 @@
+<%- include('../layouts/navbar.ejs') %>
+  <%- include('../layouts/sidebar.ejs') %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">Student Detail View</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                <li class="breadcrumb-item"><a href="/student/display">Students</a></li>
+                <li class="breadcrumb-item active">View</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Student Information</h3>
+            </div>
+
+            <div class="card-body">
+              <div class="row">
+                <!-- Student Image -->
+                <div class="col-md-4 mb-3">
+                  <img src="<%= view.image.url %>" alt="" width="100%">
+                </div>
+
+                <!-- Student Info Table -->
+                <div class="col-md-8">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <th>Roll Number</th>
+                        <td>
+                          <%= view.rollNumber %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Name</th>
+                        <td>
+                          <%= view.name %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Address</th>
+                        <td>
+                          <%= view.address %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Gender</th>
+                        <td>
+                          <%= view.gender %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Email</th>
+                        <td>
+                          <%= view.email %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Date of Birth</th>
+                        <td>
+                          <%= view.dob %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Phone</th>
+                        <td>
+                          <%= view.phone %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Branch</th>
+                        <td>
+                          <%= view.branch %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Semester</th>
+                        <td>
+                          <%= view.semester %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Registered At</th>
+                        <td>
+                          <%= view.createdAt ? view.createdAt.toLocaleString() : 'N/A' %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Updated At</th>
+                        <td>
+                          <%= view.updatedAt ? view.updatedAt.toLocaleString() : 'N/A' %>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Optional Back Button -->
+              <% if (role==='admin' ) { %>
+                <div class="mt-4">
+                  <a href="/student/display" class="btn btn-secondary">Back to List</a>
+                </div>
+                <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('../layouts/footer.ejs') %>

@@ -1,0 +1,83 @@
+<%- include('../layouts/navbar.ejs') %> 
+<%- include('../layouts/sidebar.ejs') %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Company Detail View</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/student/display">Company</a></li>
+            <li class="breadcrumb-item active">View</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Company Information</h3>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+
+
+            <!--company Info Table -->
+            <div class="col-md-8">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th>Name</th>
+                    <td><%= view.cname %></td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td><%= view.email %></td>
+                  </tr>
+                  <tr>
+                    <th>Phone</th>
+                    <td><%= view.phone %></td>
+                  </tr>
+                  <tr>
+                    <th>Address</th>
+                    <td><%= view.address %></td>
+                  </tr>
+                  <tr>
+                    <th> Website</th>
+                    <td><%= view.website %></td>
+                  </tr>
+                  <tr>
+                    <th>Registered At</th>
+                    <td><%= view.createdAt ? view.createdAt.toLocaleString() : 'N/A' %></td>
+                  </tr>
+                  <tr>
+                    <th>Updated At</th>
+                    <td><%= view.updatedAt ? view.updatedAt.toLocaleString() : 'N/A' %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Optional Back Button -->
+          <div class="mt-4">
+            <a href="/Hod/display" class="btn btn-secondary">Back to List</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../layouts/footer.ejs') %>
