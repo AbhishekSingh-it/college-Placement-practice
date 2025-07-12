@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser')
 const setUserInfo = require('./middleware/setUserInfo');
 // const fileUpload =require('express-fileupload')
 require("dotenv").config();
+const port = process.env.PORT || 4000 
 
 //token get cookie
 app.use(cookieParser())
@@ -46,7 +47,7 @@ app.use(express.urlencoded())
 app.use('/',web)
 
 //server start
-app.listen(process.env.PORT,()=>{
+app.listen(port,()=>{
     console.log(`server start localhost:${process.env.PORT}`)
 })
 
