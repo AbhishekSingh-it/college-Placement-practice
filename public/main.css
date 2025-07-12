@@ -1,17 +1,38 @@
 .banner {
-    background-image: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.7) 0,
-        rgba(0, 0, 0, 0.5) 60%,
-        rgba(0, 0, 0, 0.8) 100%
-      ),
-      url(https://vikrantuniversity.ac.in/wp-content/uploads/2025/06/vu-infrastructure-2025-7.webp);
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.5) 60%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("https://vikrantuniversity.ac.in/wp-content/uploads/2025/06/vu-infrastructure-2025-7.webp");
   width: 100%;
-  height: 695px;
-  background-position: fixed;
+  min-height: 60vh; /* responsive height */
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
 }
+
+/* Optional: Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .banner {
+    min-height: 50vh;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    min-height: 40vh;
+    padding: 1rem;
+  }
+}
+
 
 .banner h6 {
   color: rgb(255, 255, 255);
